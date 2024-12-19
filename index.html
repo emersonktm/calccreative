@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Creative</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 100%;
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            max-width: 80px;
+            height: auto;
+        }
+
+        h1 {
+            text-align: left;
+            margin: 0;
+            padding-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+
+            .logo {
+                max-width: 60px;
+            }
+
+            button {
+                padding: 8px;
+            }
+
+            input {
+                padding: 8px;
+            }
+
+            .result {
+                padding: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .logo {
+                max-width: 50px;
+            }
+
+            .result {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_HKfQU58wEYJchXFwHtUcuMsJrKgNqQlX76BRfUN37M8DstNdNq4m3zBVJoVGp-ZoLmTsw9YIQvUzHUo2EdCX7xuJzJTHq6ZfQu26G10XNr-iBXROJ-cg1J_j-ej7Nte6XymX5FeW9QtIhX4HTDapCdUBKYvRhc7mK_CkW2BGguBnPBv4uwGRXz9svbigETeTxka2YIoR2mGUzCS9LsPvgVv_cyx494zWKU5IMFi-EDpcRn-c2pGbIRol3hFTAob29gD0oKSiHW_51UtyaqcmjD8NSkNLlUuFaIi8NAI6U6ZZXcX5NkdKanA2VI35lDGLNtQ-KzpSSkvBCk-XhNYvmN-gd0A2pnZsM7DA5zaOuXpH50_FVM_FD9bri4zG1tMLVeeDYkvdyLUmV8H35xrT5BzloJu-3-1ssKILbi5beDDXlqlXMP-M7cLkX8F44V7DLjKjQQa_X2BfLLY31fO4peIAkS5vPNObzUUpJU9YuGOBq3nGFI8uvRe3oBUncZQ1rrrVKBWwB6UjKQnXMiPTpFjAEtmmBAZCgSSOsGckuZ7mt98MaBRXBiCR1jIgdBqE6ZEdmhjUBgfiZzlVZNklb4y1Hp0reNDOqbyYz2QsiXLSJgxJz0OW6Or3CGtLz7z0d1RP1GgwAbLhRoGoT4pCxzxqVqtP5EGo-D5A1UXw-dA-iRiUFrEot9SN3liBzC1X5vG_mtAeVivlkR5Yf1CyC56EFUtQ9wgTVUN-fA_oNSBvRZMDezvI74eQsiEM_io5B7hEn6CfpUPMDxj730vReEupnONjhgdfXRXRegtI7867_O8_9qI9EhemnwAi56VxaxpI-mxynmwQ_WtK3Hu7jDk88qgUN4lmVNvHeQ1oPO4V-qru3K3hGD-NaHF3h3NX0HXaIQq5eDZtrJdtwRbUSDPf5bbdTz2BmCAYNcSFxWuTQR1Ct6v9sArHtDuoNpXEFI82mPwQMKaNYbvs2w0rU4rj2rI4Bcl-UdgjHaP3jCirWVLDF_C7xLlHMf0D7jkpi19jow6FDnhypwDg2BOCGf4vCG1O6rZnje9YRBRqKAE6t6iPgwxCqO3VmouiYrJuD4aDB6VcuxMaLDE07dzBDtZmEinesgq5ZnQKRIecjzjJoj0G6FCXQqDozChYswKL18FVmkss01cF7zxiCm9vVDbUo3S4k-OG5XcJ7cIozTW4PNzA8i-64rTjCq1fLqnSR-bDG6no9lyv0v7X7s-sCCGkVtZ1QlBtlW6hF165L-nsWC24jILMPM1QvrKhHG6jVVVgfwArn41AY21klOmu2G9Q5LTz51u30812EFofQLgIM1ZZ9UyNkVtYXplG0RsXQhUyYJOwLQAyIbt-OEi61g4TWofzRb6q-XNK12JixTptASu9uTjyFJcee3ezbHyXcC3KyqlnyPCYdIA9T2edHJjZXFplPEgWiG83f5W_io6XS2paJX6G3aAZ5VaRb6tPMH8jLVjABD4ZOYEtdfRS_MrzZ5Ru64oFNXsSUu7gW9VI__fop7Ixy_LzRK_bEnf_lMcFlOhT-4yePQdFB5Z6lwrWMIYHVI2ecD5GkGVRZV05gXktMxVH29zLfoHYYpN1ZiWuAEdUww7wPNbUKprCgIE3GiBWV7e_EqIK8jSJHeNtqkTP_-RFbFqAoNMpg1IVQafWlQN61wzASOZsZ4pkjicFI2jI3019Ut0SPX_j-b_dK0siuTkPWGhKGDkK4OLHKVf-wAxyinaQepAosIPAQkCZnzgHNOGZ7o9tZ3J-L_KoUUntP9JsBGTm2p178CMTlyhjtHFaVh7hMmp6eiT4_GvI-hH7QDcaLidtg1yttwrQoTrHn6hnvi7v0DsdCQ__B8WI4fOtRM=w1920-h918" alt="Logo" class="logo">
+        <h1>Calculadora Creative</h1>
+        <label for="largura">Largura (em metros):</label>
+        <input type="number" id="largura" placeholder="Digite a largura">
+
+        <label for="altura">Altura (em metros):</label>
+        <input type="number" id="altura" placeholder="Digite a altura">
+
+        <label for="desconto">Desconto (%):</label>
+        <input type="number" id="desconto" placeholder="Digite o desconto (opcional)">
+
+        <button onclick="calcularCusto()">Calcular Custo</button>
+
+        <div class="result" id="resultado" style="display: none;"></div>
+    </div>
+
+    <script>
+        const precoPorMetroQuadrado = 80;
+
+        function calcularCusto() {
+            const largura = parseFloat(document.getElementById('largura').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+            const desconto = parseFloat(document.getElementById('desconto').value) || 0;
+
+            if (isNaN(largura) || isNaN(altura) || largura <= 0 || altura <= 0) {
+                alert('Por favor, insira valores válidos para largura e altura.');
+                return;
+            }
+
+            if (desconto < 0 || desconto > 100) {
+                alert('Por favor, insira um valor de desconto entre 0 e 100.');
+                return;
+            }
+
+            const area = largura * altura;
+            let custo = area * precoPorMetroQuadrado;
+            custo -= (custo * desconto) / 100;
+
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.style.display = 'block';
+            resultadoDiv.innerHTML = `Área: ${area.toFixed(2)} m²<br>Custo com desconto: R$ ${custo.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
