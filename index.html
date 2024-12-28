@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora Creative</title>
+    <title>ORDEM DE SERVIÇO CREATIVE</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,12 +36,18 @@
             padding-bottom: 20px;
         }
 
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
         label {
             display: block;
             margin: 10px 0 5px;
         }
 
-        input {
+        select, input {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -57,6 +63,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            grid-column: span 2;
         }
 
         button:hover {
@@ -71,26 +78,100 @@
             border-radius: 5px;
         }
 
+        .budget-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #eee;
+        }
+
+        .budget-header img {
+            max-width: 150px;
+            height: auto;
+        }
+
+        .budget-header h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .budget-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .budget-details div {
+            background-color: #fafafa;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .budget-details div h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .budget-details div p {
+            margin: 5px 0;
+            font-size: 1em;
+            color: #555;
+        }
+
+        .budget-summary {
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+        }
+
+        .budget-summary .total {
+            font-size: 1.6em;
+            font-weight: bold;
+            color: #2d3e50;
+        }
+
+        .budget-summary .discount {
+            font-size: 1.2em;
+            color: #e74c3c;
+        }
+
+        .budget-footer {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .budget-footer button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .budget-footer button:hover {
+            background-color: #218838;
+        }
+
         @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                padding: 15px;
+            .budget-details {
+                grid-template-columns: 1fr;
             }
 
-            .logo {
-                max-width: 60px;
-            }
-
-            button {
-                padding: 8px;
-            }
-
-            input {
-                padding: 8px;
-            }
-
-            .result {
-                padding: 8px;
+            .budget-summary {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
 
@@ -111,54 +192,228 @@
 </head>
 <body>
     <div class="container">
-        <img src="https://lh3.googleusercontent.com/fife/ALs6j_EVVW-9CiKbP1RhkdXj1x5HYlNiOWCZ0u27js3aEtKWJnf7Ell6hYmUeP2ZekGjawYOrVcV1X9DUYZr5QdzsF5rt07VXRVzUGzq1-qTDXamFRwin6e31EMf5TakMDdwkfR5-0I1vzaJTLnKTdCPajPxtk6k_QZk6sSi_Jt5_BkeoD2fuooDGuNA3akbLW5mTHYgO23bUD4QtWGKvJ44AiVAki3LQ5DxoOqmkTBg8KkyH_e0jX7RB0Bvzcn95nPuilc5jhdV3OsGma_XgCaZWykavucp6e9Bo7aZnBJ2sXI8Ko6mwW3QYQWPQXzpNwYHmO_VJT-gp32Tm_ehJyW-xBsCFWOuU40sonHt5l6d-pnuZwcu4jcVQIzEfp_V3GbRYnh-BsNO0TmmskPlWdxLAMLGPmPMoq6XA-oLo6cNkCH_xohHQkoR-GmfVaF74x86sn-95cZD-GvPuLV66OPAC4-YokXLC_ooKxWnXQw0w6zh3xHYPdBr-KIyEXAztFe0vT_e9Dj9TC9kbqx5C2OlEV3iUWMcw2oaRipC-54loRDvopftRD3z5RXi-ooWKljmzfcny2Scs9DjssljRn_HrM7PhyfBpBBbqnwp8Wr8R003tcXkmPzTmVsDX5SGW5QKHOS44YCxznJ99iOS19LQYVqitVtFTE0EfheoDPinqejJddEI1rY_WQ5XenW4xIq40oaOw2OQG3yaZM_nAocncxYPslScmR7_5IevRnjnGijYhW-k61yj_AZH_eQSguWKvh-Ti3l7RwBr_hvYuHd32S9G5Z_qyWYPHeogaqzWH08kCQkquSTJIrwnylKH-p_qZoGzZVsN9fUbshZ5odJP7Z5mY6u6_nKJZ1sWA2jE-5_sVv32RvCbdpGIeE74h7HPBLQir0oTNJul_ZrONApvjQDRK_kqtqA_MPAc8gmgI8DQDufbmq6c7cYgbF43gsnfCG48U7ux5KDyGkHyzwzsmoCuxhFZKVX5REsLJsDsseohsj6S3mnuINEWAlpwx6IH416xiwiea_PNXC-tjNck3up-w9h_6TUloHNiqVm4hoaZe4aVtoWYDSRSZNS1z2_MuUlJQctV6zkNorPnnQBDrB776fjGEtWzHmzFU5mrs6dvK4Zs7Wk9qitlxZ8Ntc5BTDzIlIpeDotTngBoRrzW9FRzHoWded55F1NcylsaVYjS9oZI2AMqa82p-mY_ecedmf-A_9evoKKkTlZ1FAYu69104CH84TsIR4c7AhG-OsXfTvEHioyZ5M23XLUSgsSt1LYEjt_c-ONCga9yEu19kxRqgbUfL2BtuC5lnI4NGFvhbcl3RWEu9LIdOqyqvNDW82o6yXy1smYJKctMYAlv9a4VYbaXjL8A5icwF2QM7Dk5pvuq3uC5TGSxGdYe0vOFDk3rwAWDiWv_rQXkH7Z3D34Vz5-Urji3HXaDFgZSyMViroHKdaQHFwHQ1CsQItXc-n4RRLp53pkpT6kcxLifq81M3Ug3tD8TbPmyu-kQGubIUhnZ28YE-g_gV-61mMJ7IwGsKBxBB68LuIpRaZAHXD1E-pvNnJuDfxuOl-9m6c_Ep-wmDauH0NugZGzo9NX7BMD1ZvE8-dmCDb63flGQ44_JgwSfoiPIOpyzrLhIdJISI0zGDl9RNwOdSSRa9Bein8VVPjODYd_RoFwzFDvKwwcOtvSQO68NR9H5BtsjkBoP3d-hzy0DWUKglPJGHncblFmyABQDTRGX6ReXBiUrmbf9nkUXYNOrbbTMeQl29BMfqkXTHClCqi57wGz4BZX0cW6TXT36__-8EF1G3EyLfcB5-4Wb74Oc3TeZM4ZdzNoCOOXHJRfyD4d1B1Ul-vgJ4wjJgRjnV_Ip=w1920-h918" alt="Logo" class="logo">
-        <h1>Calculadora Creative</h1>
-        <label for="largura">Largura (em metros):</label>
-        <input type="number" id="largura" placeholder="Digite a largura">
+        <img src="https://lh3.googleusercontent.com/fife/ALs6j_HNnm9PMX9VEKSwcclM-Ke06E7TTwu5eNu8143NeIvPkTSOpc6a6PgnJbhjiEi0CqSAePXbvWX7bD2vhiD3BpoiXRhoicxfY6PAnQC9JcBnAlyGHNLgCf93dMdPi4dci3QlicfmUc46Lk6TYt0P80hBiJqhk0p0MDXWIna6FmJRIApImEVCC7LpsXjm0sS8bNcK4lb3CgVsUVgEaKXKonveGGRHdRtKxtQZr0FdKJM_gGllW8CqEldpsxIRbYV_wp60LL3Ed21LOyvEB7IWKMXcNyhs8NXo_DnCICpcd8KwFsGOVjWm9BKYDxcsA39QSDV24L8FotTCMhq4D0UOAWV2mbI25uRHiJB1P5ZRrpkPdl-RahmTgK1q8xV1KCDQ08Tt0r_cYJZuNUDK72tpLDwlREUHUAPUEXqtMh_fu1GoBK4KON9Szquze9Z1shfgPHHLC8x3--aL_pTY3lWGtcG69ZA-WD8z_m0n6RZRf_7USY3ISb_D1m8yPUm3ktv-Z5Epk7t3lZbuX92hbtlC0JKuJlJJhUYM82Cof_vr9lU2J9lEs7Heym8IyVwibsXRZvhJAThVa8eJt2WWlAyTWtfbYzmBUD72y7xSEjNp5z5lzJbJ0G6QbUHIT6M2l_qmCC_QQbZZWNv_B6HNBcoc5QGHr2Rr-a_IW2v0nyjgFT0U5UR0JqIbMQh8kk-geW5I6Cbb-3H03dAtAUlv4rzuZKXljB4KDB8hcK6oo7haDV1v6U9W0rnU-2dZW-oQcFeFdMh1ZXoedqxRKRIuZXf_qlKL0MjLge1w7q3jvIuykOomEoypnA6XMRzBZOxBmlxl6YlH9r_oZ_asjkJn3mH0iX9IHA94HE7Yli2NgpbUZF_27KF-E4nwgy0XMjbz7hIvuofsuuXmVKH51kXsymufPnrUqDva8NU2xz3kaoJGoncJ4WWQRGl37dOJ0d_dMnlYpMBNT0rqGLrn-pyiz3XBLYu7NKhCDoBiPb7Mw4C71aJZf2haiulJNqMmBLvJUa3SZOHuH8lGImLhkBmrCqIwRf3S05vg2xN493NshPoFXgCxtDfUaUMtf9sgQgoqJ30Nrdd_FPQDn03jie66wv5yVSUqUmlQw0VWxVAvJnQlQWhRbW4O6B5soMEGZNlXBH3BBOtFADFuvcWvLsQNawjoip2XwdGyYGcbqb3JTOkCACtEc4h6PmbA4B25zCG0Yd6YKUekCzH_rRlXPB0sWAgv8VNO4-_G8YWUYkfPnlpPOU79A9Aa6TqkW8-13Blla2Hgozwf1DSwxqVkHjG9SK3N-9Uku_6foLcpA_oNIcxGcwKefCG-qn8RuHTtHnIYhTR7b1H8p8isd83rItvqj06ZW-3QRZl2wZaSqtu9oUnA_YN1B9PMK97VpxGR5k2TXgMh20-QVCrS-HYgeFA0iN1f-nmUEnS6qdQqyFyZHi3Rc8YS-ZWK3diTr5Hy-Yr1t4DonjED3RP1tBHJI8_tY_22MIn0N5E8tTEs4nyK47IG8iw0yVoJzdUJFuXP8Mj24RaUNx-nxBAUwzhtRawhDY0DGZbvCWXJe6xTwpa-EDt8mmR-OyoVavILbhZdl5l1T4miboSZLPeeEiGNZ2K6TMaqOMefd5OUfQzVLkkBI3cJXEp1jh653nJ1l_Cz5wn_jbkApljKvCQFhJsYvZgj5_Fhn-d_2nhJtACQsDLJNIKkvxh4ZfGMy3NH65PKBDGBp7mvEFEgfnFeZbySd9ZCL8QhfPc_y7IajHZOJPiA6qa-d1rTJwOm1XJGCUpyYz9V5qCIXpnRlEPg9IhQ7ub45mcqSBHWlfOYObzKmCdLgJ7rKl4g6etk5xPp46TDjPSPQKZjh-Fpx1D_rXVv=w1920-h918" alt="Logo" class="logo">
+        <h1>ORDEM DE SERVIÇO CREATIVE</h1>
 
-        <label for="altura">Altura (em metros):</label>
-        <input type="number" id="altura" placeholder="Digite a altura">
+        <div class="form-grid">
+            <div>
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" placeholder="Digite seu nome">
+            </div>
 
-        <label for="preco">Preço por metro quadrado (R$):</label>
-        <input type="number" id="preco" placeholder="Digite o preço por metro quadrado">
+            <div>
+                <label for="contato">Contato:</label>
+                <input type="text" id="contato" placeholder="Digite seu contato">
+            </div>
 
-        <label for="desconto">Desconto (%):</label>
-        <input type="number" id="desconto" placeholder="Digite o desconto (opcional)">
+            <div>
+                <label for="formaPagamento">Forma de Pagamento:</label>
+                <select id="formaPagamento">
+                    <option value="Cartão">Cartão</option>
+                    <option value="Dinheiro">Dinheiro</option>
+                    <option value="Pix">Pix</option>
+                </select>
+            </div>
 
-        <button onclick="calcularCusto()">Calcular Custo</button>
+            <div>
+                <label for="data">Data:</label>
+                <input type="date" id="data">
+            </div>
+
+            <div>
+                <label for="material">Material:</label>
+                <select id="material" onchange="atualizarAcabamento()">
+                    <option value="Lona">Lona</option>
+                    <option value="Lona Backlight">Lona Backlight</option>
+                    <option value="Banner">Banner</option>
+                    <option value="Adesivo">Adesivo</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="acabamento">Acabamento:</label>
+                <select id="acabamento" style="display: none;">
+                    <option value="Sem Acabamento">Sem Acabamento</option>
+                    <option value="Ilhós">Ilhós</option>
+                    <option value="Ilhós + Fita Reforço">Ilhós + Fita Reforço</option>
+                    <option value="Brilho/Fosco" class="adesivo-option" style="display: none;">Brilho/Fosco</option>
+                    <option value="Transparente" class="adesivo-option" style="display: none;">Transparente</option>
+                    <option value="Seetru" class="adesivo-option" style="display: none;">Seetru</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="gramatura">Gramatura:</label>
+                <select id="gramatura">
+                    <option value="280G">280G</option>
+                    <option value="440G">440G</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="largura">Largura (em metros):</label>
+                <input type="number" id="largura" placeholder="Digite a largura">
+            </div>
+
+            <div>
+                <label for="altura">Altura (em metros):</label>
+                <input type="number" id="altura" placeholder="Digite a altura">
+            </div>
+
+            <div>
+                <label for="preco">Preço por metro quadrado (R$):</label>
+                <input type="number" id="preco" placeholder="Digite o preço por metro quadrado">
+            </div>
+
+            <div>
+                <label for="desconto">Desconto (%):</label>
+                <input type="number" id="desconto" placeholder="Digite o desconto (opcional)">
+            </div>
+
+            <button onclick="calcularCusto()">Calcular Custo</button>
+            <button onclick="gerarOrcamento()">Gerar Orçamento</button>
+        </div>
 
         <div class="result" id="resultado" style="display: none;"></div>
     </div>
 
     <script>
+        function atualizarAcabamento() {
+            const material = document.getElementById('material').value;
+            const acabamento = document.getElementById('acabamento');
+            const adesivoOptions = document.querySelectorAll('.adesivo-option');
+            
+            // Oculta as opções de acabamento inicialmente
+            if (material === "Lona" || material === "Lona Backlight" || material === "Banner") {
+                // Exibe o campo de acabamento para "Lona", "Lona Backlight", e "Banner"
+                acabamento.style.display = 'block';
+
+                // Exibe as opções "Ilhós" e "Ilhós + Fita Reforço"
+                for (let option of acabamento.options) {
+                    option.style.display = 'block';
+                }
+            } else {
+                acabamento.style.display = 'none';
+            }
+
+            // Exibe as opções específicas para "Adesivo"
+            if (material === "Adesivo") {
+                for (let option of adesivoOptions) {
+                    option.style.display = 'block';
+                }
+            } else {
+                for (let option of adesivoOptions) {
+                    option.style.display = 'none';
+                }
+            }
+        }
+
         function calcularCusto() {
-            const largura = parseFloat(document.getElementById('largura').value);
-            const altura = parseFloat(document.getElementById('altura').value);
-            const precoPorMetroQuadrado = parseFloat(document.getElementById('preco').value);
-            const desconto = parseFloat(document.getElementById('desconto').value) || 0;
+            const largura = parseFloat(document.getElementById("largura").value);
+            const altura = parseFloat(document.getElementById("altura").value);
+            const preco = parseFloat(document.getElementById("preco").value);
+            const desconto = parseFloat(document.getElementById("desconto").value) || 0;
 
-            if (isNaN(largura) || isNaN(altura) || largura <= 0 || altura <= 0) {
-                alert('Por favor, insira valores válidos para largura e altura.');
+            if (!largura || !altura || !preco) {
+                alert("Preencha todos os campos.");
                 return;
             }
 
-            if (isNaN(precoPorMetroQuadrado) || precoPorMetroQuadrado <= 0) {
-                alert('Por favor, insira um valor válido para o preço por metro quadrado.');
-                return;
-            }
+            const metrosQuadrados = largura * altura;
+            let valorTotal = metrosQuadrados * preco;
+            const valorDesconto = valorTotal * (desconto / 100);
 
-            if (desconto < 0 || desconto > 100) {
-                alert('Por favor, insira um valor de desconto entre 0 e 100.');
-                return;
-            }
+            valorTotal -= valorDesconto;
 
-            const area = largura * altura;
-            let custo = area * precoPorMetroQuadrado;
-            custo -= (custo * desconto) / 100;
+            document.getElementById("resultado").innerHTML = `
+                <h3>Resultado:</h3>
+                <p><strong>Área:</strong> ${metrosQuadrados.toFixed(2)} m²</p>
+                <p><strong>Valor Total:</strong> R$ ${valorTotal.toFixed(2)}</p>
+                <p><strong>Desconto:</strong> R$ ${valorDesconto.toFixed(2)}</p>
+            `;
+            document.getElementById("resultado").style.display = "block";
+        }
 
-            const resultadoDiv = document.getElementById('resultado');
-            resultadoDiv.style.display = 'block';
-            resultadoDiv.innerHTML = `Área: ${area.toFixed(2)} m²<br>Custo com desconto: R$ ${custo.toFixed(2)}`;
+        function gerarOrcamento() {
+            // Pegue os dados do orçamento
+            const nome = document.getElementById('nome').value;
+            const contato = document.getElementById('contato').value;
+            const formaPagamento = document.getElementById('formaPagamento').value;
+            const data = document.getElementById('data').value;
+            const material = document.getElementById('material').value;
+            const acabamento = document.getElementById('acabamento').value;
+            const gramatura = document.getElementById('gramatura').value;
+            const largura = document.getElementById('largura').value;
+            const altura = document.getElementById('altura').value;
+            const preco = document.getElementById('preco').value;
+            const desconto = document.getElementById('desconto').value || 0;
+            const numeroOrcamento = '#0001'; // Gerar número do orçamento (poderia ser automatizado)
+
+            // Calcular valor total
+            const metrosQuadrados = largura * altura;
+            let valorTotal = metrosQuadrados * preco;
+            const valorDesconto = valorTotal * (desconto / 100);
+            valorTotal -= valorDesconto;
+
+            // Abra a nova aba
+            const novaAba = window.open('', '_blank');
+            novaAba.document.write(`
+                <html lang="pt-BR">
+                    <head>
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Orçamento - ${numeroOrcamento}</title>
+                        <style>
+                            body { font-family: Arial, sans-serif; color: #333; }
+                            .container { max-width: 800px; margin: 30px auto; }
+                            .budget-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; padding-bottom: 10px; border-bottom: 2px solid #eee; }
+                            .budget-header img { max-width: 150px; height: auto; }
+                            .budget-header h1 { font-size: 2em; margin: 0; font-weight: bold; }
+                            .budget-details { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+                            .budget-details div { background-color: #fafafa; padding: 15px; border-radius: 6px; border: 1px solid #ddd; }
+                            .budget-summary { display: flex; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 2px solid #eee; }
+                            .total { font-size: 1.6em; font-weight: bold; color: #2d3e50; }
+                            .discount { font-size: 1.2em; color: #e74c3c; }
+                            .budget-footer { text-align: center; margin-top: 20px; }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="container">
+                            <div class="budget-header">
+                                <img src="https://lh3.googleusercontent.com/fife/ALs6j_HNnm9PMX9VEKSwcclM-Ke06E7TTwu5eNu8143NeIvPkTSOpc6a6PgnJbhjiEi0CqSAePXbvWX7bD2vhiD3BpoiXRhoicxfY6PAnQC9JcBnAlyGHNLgCf93dMdPi4dci3QlicfmUc46Lk6TYt0P80hBiJqhk0p0MDXWIna6FmJRIApImEVCC7LpsXjm0sS8bNcK4lb3CgVsUVgEaKXKonveGGRHdRtKxtQZr0FdKJM_gGllW8CqEldpsxIRbYV_wp60LL3Ed21LOyvEB7IWKMXcNyhs8NXo_DnCICpcd8KwFsGOVjWm9BKYDxcsA39QSDV24L8FotTCMhq4D0UOAWV2mbI25uRHiJB1P5ZRrpkPdl-RahmTgK1q8xV1KCDQ08Tt0r_cYJZuNUDK72tpLDwlREUHUAPUEXqtMh_fu1GoBK4KON9Szquze9Z1shfgPHHLC8x3--aL_pTY3lWGtcG69ZA-WD8z_m0n6RZRf_7USY3ISb_D1m8yPUm3ktv-Z5Epk7t3lZbuX92hbtlC0JKuJlJJhUYM82Cof_vr9lU2J9lEs7Heym8IyVwibsXRZvhJAThVa8eJt2WWlAyTWtfbYzmBUD72y7xSEjNp5z5lzJbJ0G6QbUHIT6M2l_qmCC_QQbZZWNv_B6HNBcoc5QGHr2Rr-a_IW2v0nyjgFT0U5UR0JqIbMQh8kk-geW5I6Cbb-3H03dAtAUlv4rzuZKXljB4KDB8hcK6oo7haDV1v6U9W0rnU-2dZW-oQcFeFdMh1ZXoedqxRKRIuZXf_qlKL0MjLge1w7q3jvIuykOomEoypnA6XMRzBZOxBmlxl6YlH9r_oZ_asjkJn3mH0iX9IHA94HE7Yli2NgpbUZF_27KF-E4nwgy0XMjbz7hIvuofsuuXmVKH51kXsymufPnrUqDva8NU2xz3kaoJGoncJ4WWQRGl37dOJ0d_dMnlYpMBNT0rqGLrn-pyiz3XBLYu7NKhCDoBiPb7Mw4C71aJZf2haiulJNqMmBLvJUa3SZOHuH8lGImLhkBmrCqIwRf3S05vg2xN493NshPoFXgCxtDfUaUMtf9sgQgoqJ30Nrdd_FPQDn03jie66wv5yVSUqUmlQw0VWxVAvJnQlQWhRbW4O6B5soMEGZNlXBH3BBOtFADFuvcWvLsQNawjoip2XwdGyYGcbqb3JTOkCACtEc4h6PmbA4B25zCG0Yd6YKUekCzH_rRlXPB0sWAgv8VNO4-_G8YWUYkfPnlpPOU79A9Aa6TqkW8-13Blla2Hgozwf1DSwxqVkHjG9SK3N-9Uku_6foLcpA_oNIcxGcwKefCG-qn8RuHTtHnIYhTR7b1H8p8isd83rItvqj06ZW-3QRZl2wZaSqtu9oUnA_YN1B9PMK97VpxGR5k2TXgMh20-QVCrS-HYgeFA0iN1f-nmUEnS6qdQqyFyZHi3Rc8YS-ZWK3diTr5Hy-Yr1t4DonjED3RP1tBHJI8_tY_22MIn0N5E8tTEs4nyK47IG8iw0yVoJzdUJFuXP8Mj24RaUNx-nxBAUwzhtRawhDY0DGZbvCWXJe6xTwpa-EDt8mmR-OyoVavILbhZdl5l1T4miboSZLPeeEiGNZ2K6TMaqOMefd5OUfQzVLkkBI3cJXEp1jh653nJ1l_Cz5wn_jbkApljKvCQFhJsYvZgj5_Fhn-d_2nhJtACQsDLJNIKkvxh4ZfGMy3NH65PKBDGBp7mvEFEgfnFeZbySd9ZCL8QhfPc_y7IajHZOJPiA6qa-d1rTJwOm1XJGCUpyYz9V5qCIXpnRlEPg9IhQ7ub45mcqSBHWlfOYObzKmCdLgJ7rKl4g6etk5xPp46TDjPSPQKZjh-Fpx1D_rXVv=w1920-h918" alt="Logo">
+                                <h1>Orçamento #0001</h1>
+                            </div>
+                            <div class="budget-details">
+                                <div>
+                                    <h3>Dados do Cliente</h3>
+                                    <p><strong>Nome:</strong> ${nome}</p>
+                                    <p><strong>Contato:</strong> ${contato}</p>
+                                    <p><strong>Forma de Pagamento:</strong> ${formaPagamento}</p>
+                                    <p><strong>Data:</strong> ${data}</p>
+                                </div>
+                                <div>
+                                    <h3>Detalhes do Produto</h3>
+                                    <p><strong>Material:</strong> ${material}</p>
+                                    <p><strong>Acabamento:</strong> ${acabamento}</p>
+                                    <p><strong>Gramatura:</strong> ${gramatura}</p>
+                                    <p><strong>Área:</strong> ${metrosQuadrados} m²</p>
+                                </div>
+                            </div>
+                            <div class="budget-summary">
+                                <div>
+                                    <p class="discount">Desconto: R$ ${valorDesconto.toFixed(2)}</p>
+                                </div>
+                                <div>
+                                    <p class="total">Valor Total: R$ ${valorTotal.toFixed(2)}</p>
+                                </div>
+                            </div>
+                            <div class="budget-footer">
+                                <button onclick="window.print()">Imprimir Orçamento</button>
+                            </div>
+                        </div>
+                    </body>
+                </html>
+            `);
         }
     </script>
 </body>
